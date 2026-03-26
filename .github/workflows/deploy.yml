@@ -37,7 +37,7 @@ jobs:
 
       - name: Log in to YCR
         run: |
-          ~/yc/bin container registry configure-docker
+          yc container registry configure-docker
           # Это добавит creds в ~/.docker/config.json
 
       - name: Build and push Docker image to YCR
