@@ -33,7 +33,7 @@ jobs:
       - name: Authenticate with Yandex Cloud
         run: |
           echo "${{ secrets.YC_SERVICE_ACCOUNT_KEY }}" > key.json
-          yc config set folder-id $FOLDER_ID
+          yc config set folder-id  ${{ env.FOLDER_ID }}
           yc auth login --token $(yc iam create-token --token-file key.json)
 
       - name: Log in to YCR
