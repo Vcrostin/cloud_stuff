@@ -43,7 +43,7 @@ jobs:
       - name: Build and push Docker image to YCR
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./blue-green-depl/CloudTemplateHw3/src
           file: ./blue-green-depl/CloudTemplateHw3/src/Dockerfile
           push: true
           tags: |
