@@ -25,18 +25,20 @@ jobs:
 
       - name: Install yc CLI
         run: |
-          curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash -s -- --install-dir ~/yc --skip-path
-          echo "~/yc/bin" >> $GITHUB_PATH
+          curl -O https://storage.yandexcloud.net/yandexcloud-yc/release/yc_linux_386.tar.gz
+          tar -xzf yc_linux_386.tar.gz
+          chmod +x yc
+          export PATH=$PATH:$PWD
 
       - name: Authenticate with Yandex Cloud
         run: |
           echo "${{ secrets.YC_SERVICE_ACCOUNT_KEY }}" > key.json
-          yc config set folder-id $FOLDER_ID
-          yc auth login --token $(yc iam create-token --token-file key.json)
+          ~/yc/bin config set folder-id $FOLDER_ID
+          ~/yc/bin auth login --token $(yc iam create-token --token-file key.json)
 
       - name: Log in to YCR
         run: |
-          yc container registry configure-docker
+          ~/yc/bin container registry configure-docker
           # Это добавит creds в ~/.docker/config.json
 
       - name: Build and push Docker image to YCR
