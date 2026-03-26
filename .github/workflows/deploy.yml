@@ -28,7 +28,7 @@ jobs:
           curl -O https://storage.yandexcloud.net/yandexcloud-yc/release/yc_linux_386.tar.gz
           tar -xzf yc_linux_386.tar.gz
           chmod +x yc
-          export GITHUB_PATH=$PATH:$PWD
+          echo "$PWD" >> $GITHUB_PATH
 
       - name: Authenticate with Yandex Cloud
         run: |
