@@ -7,8 +7,8 @@ on:
 
 env:
   YC_REGISTRY: cr.yandex
-  IMAGE_NAME: ${{ secrets.YC_REGISTRY_ID }}/cloud-hw-3
-  FOLDER_ID: ${{ secrets.YC_FOLDER_ID }}
+  IMAGE_NAME: hello-world/cloud-hw-3
+  FOLDER_ID: default
 
 jobs:
   build-and-deploy:
