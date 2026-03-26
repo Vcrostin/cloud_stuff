@@ -25,8 +25,8 @@ jobs:
 
       - name: Install yc CLI
         run: |
-          curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
-          echo 'export PATH=$HOME/.yandex-cloud/bin:$PATH' >> $GITHUB_ENV
+          curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash -s -- --install-dir ~/yc --skip-path
+          echo "~/yc/bin" >> $GITHUB_PATH
 
       - name: Authenticate with Yandex Cloud
         run: |
