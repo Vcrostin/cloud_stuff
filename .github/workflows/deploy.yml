@@ -7,7 +7,7 @@ on:
 
 env:
   YC_REGISTRY: cr.yandex
-  IMAGE_NAME: hello-world/cloud-hw-3
+  IMAGE_NAME: crpvjki4829dbb6omp95/cloud-hw-3
   FOLDER_ID: default
 
 jobs:
