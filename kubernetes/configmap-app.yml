@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  NUM_ARTICLES_TRAIN: "1000"
+  POSTGRES_HOST: "postgres"
+  POSTGRES_PORT: "5432"
+  POSTGRES_DB: "postgres"
+  POSTGRES_USER: "postgres"
+  POSTGRES_PASSWORD: "postgres"
+  REDIS_HOST: "redis"
+  REDIS_PORT: "6379"
+  FLOWER_UNAUTHENTICATED_API: "true"

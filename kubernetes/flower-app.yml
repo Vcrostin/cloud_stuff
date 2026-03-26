@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flower-worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flower-worker
+  template:
+    metadata:
+      labels:
+        app: flower-worker
+    spec:
+      containers:
+        - name: flower
+          image: cr.yandex/crpvjki4829dbb6omp95/templatehw4:latest
+          command: ["/app/scripts/celery.sh", "flower"]
+          ports:
+            - containerPort: 5555
+          envFrom:
+            - configMapRef:
+                name: app-config
+          volumeMounts:
+            - name: app-data
+              mountPath: /app/data
+      volumes:
+        - name: app-data
+          persistentVolumeClaim:
+            claimName: app-data-pvc
